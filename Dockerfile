@@ -16,17 +16,19 @@ RUN echo "${ENERGI_CHECKSUM}  /tmp/energi.tar.gz" | sha256sum -c -
 
 # Extract Energi Node binary
 RUN tar -xvzf /tmp/energi.tar.gz -C /tmp && \
-    mv /tmp/energi3-* /opt/energi
+    mv /tmp/energi3-${ENERGI_VERSION}-linux-amd64 /opt/energi && ls /opt/energi
 
 # Clean up
 RUN rm /tmp/energi.tar.gz
 
-# Expose Port
-EXPOSE 39797 39798
+#Port Expose
+EXPOSE 39795 39796 39797 39797/udp
 
 # Set up a non-root user
 RUN addgroup -S energi && adduser -S energi -G energi
 USER energi
 
+
 # Run the Energi Node client
 ENTRYPOINT ["/opt/energi/bin/energi3"]
+
