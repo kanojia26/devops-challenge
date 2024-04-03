@@ -20,7 +20,7 @@ RUN tar -xvzf /tmp/energi.tar.gz -C /opt/ && \
 
 
 # Verfiy Library
-RUN ls /opt/energi
+RUN ls /opt/energi && ls /opt/energi/bin && pwd
 # Clean up
 RUN rm /tmp/energi.tar.gz
 
@@ -28,8 +28,8 @@ RUN rm /tmp/energi.tar.gz
 EXPOSE 39795 39796 39797 39797/udp
 
 # Set up a non-root user
-RUN addgroup -S energi && adduser -S energi -G energi
-USER energi
+# RUN addgroup -S energi && adduser -S energi -G energi
+# USER energi
 
 
 # Run the Energi Node client
