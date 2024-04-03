@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: energi-node
+spec:
+  replicas: 3
+  serviceName: energi-node
+  selector:
+    matchLabels:
+      app: energi-node
+  template:
+    metadata:
+      labels:
+        app: energi-node
+    spec:
+      containers:
+      - name: energi-node
+        image: awskanojia/devops-challenge:latest
+        resources:
+          requests:
+            cpu: "0.5"  # Define minimum CPU required
+            memory: "512Mi"  # Define minimum memory required
+          limits:
+            cpu: "1"  # Define maximum CPU limit
+            memory: "1Gi"  # Define maximum memory limit
+        volumeMounts:
+        - name: data
+          mountPath: /data  # Mount point for persistent volume
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi  # Request for 1GB storage

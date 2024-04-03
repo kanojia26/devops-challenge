@@ -64,14 +64,11 @@ jobs:
       #     kubectl get svc -A
       #     kubectl apply -f statefullset/app-statefullset.yaml
 
-      - name: Terraform Init
-        run: terraform init
+      - name: Terraform Deploy
+        run: |
+          terraform init
+          terraform plan -out=tfplan
+          terraform apply -auto-approve tfplan
+          terraform destroy -auto-approve
 
-      - name: Terraform Plan
-        run: terraform plan -out=tfplan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
-
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+      
