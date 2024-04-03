@@ -52,3 +52,19 @@ Provide a link to an online source code repository such as Github or Gitlab. 10 
 Total is 100.
 Pass mark is 50.
 Good luck!
+
+
+------------------------------------------------------------------------------------------------------------
+
+# Solution
+
+Follow the Github Action for Testing Question 1,2,3 and 6. 
+
+https://github.com/kanojia26/devops-challenge/actions
+
+![Alt text](image.png)
+
+
+https://github.com/kanojia26/devops-challenge/actions/runs/8535821142
+![Alt text](image-1.png)
+
