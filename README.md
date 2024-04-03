@@ -62,9 +62,6 @@ Follow the Github Action for Testing Question 1,2,3 and 6.
 
 https://github.com/kanojia26/devops-challenge/actions
 
-![Alt text](image.png)
-
-
 https://github.com/kanojia26/devops-challenge/actions/runs/8535821142
-![Alt text](image-1.png)
+
 
