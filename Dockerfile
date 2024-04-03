@@ -27,11 +27,14 @@ RUN rm /tmp/energi.tar.gz
 #Port Expose
 EXPOSE 39795 39796 39797 39797/udp
 
-# Set up a non-root user
-# RUN addgroup -S energi && adduser -S energi -G energi
-# USER energi
+# Set the working directory
+WORKDIR /opt/energi
+
+#Set up a non-root user
+RUN addgroup -S energi && adduser -S energi -G energi
+USER energi
 
 
 # Run the Energi Node client
-ENTRYPOINT ["/opt/energi/bin/energi3"]
+CMD ["./bin/energi3"]
 
