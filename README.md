@@ -65,3 +65,45 @@ https://github.com/kanojia26/devops-challenge/actions
 https://github.com/kanojia26/devops-challenge/actions/runs/8535821142
 
 
+Solution: 4
+
+Let's say you have a file named students.txt containing data about students, with each line representing a student's record in the format: Name, Age, Grade. Here's a sample data with 10 lines:
+```bash
+John, 18, A
+Alice, 17, B
+Bob, 16, C
+Emma, 19, A
+Michael, 17, B
+Sophia, 18, A
+David, 16, C
+Olivia, 18, A
+William, 17, B
+Ella, 16, C
+```
+
+
+## Analysis
+You can perform various analyses on this data using text manipulation tools like `awk`, `sed`, `grep`, etc.
+
+For example, you can use `awk` to extract the names of students who are 18 years old:
+```bash
+awk -F ', ' '$2 == 18 {print $1}' students.txt
+
+```
+Output 
+
+```bash
+John
+Sophia
+Olivia
+```
+
+Similarly, you can use sed to achieve the same result:
+
+```bash
+sed -n '/18,/ s/,.*//p' students.txt
+
+```
+
+## Question 5
+I will skip challenges 5. However, if needed, I can explain how I would approach them.
