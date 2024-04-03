@@ -33,9 +33,9 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
-            -t your-docker-username/your-docker-repo:latest \
+            -t awskanojia/devops-challenge:latest \
             .
 
       - name: Scan Docker image with Trivy
         run: |
-          docker run --rm -v $(pwd):/workdir aquasec/trivy your-docker-username/your-docker-repo:latest
+          docker run --rm -v $(pwd):/workdir aquasec/trivy awskanojia/devops-challenge:latest
