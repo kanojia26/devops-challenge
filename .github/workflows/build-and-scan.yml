@@ -35,11 +35,9 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             -t awskanojia/devops-challenge:latest \
             .
-
-      - name: Build Docker image
-        run: |
           docker push \
             awskanojia/devops-challenge:latest
+
 
       - name: Install Trivy
         run: |
