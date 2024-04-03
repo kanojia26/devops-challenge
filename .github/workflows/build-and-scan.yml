@@ -34,9 +34,8 @@ jobs:
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
             -t awskanojia/devops-challenge:latest \
+            --push \
             .
-          docker push \
-            awskanojia/devops-challenge:latest
 
 
       - name: Install Trivy
