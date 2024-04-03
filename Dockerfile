@@ -16,7 +16,7 @@ RUN echo "${ENERGI_CHECKSUM}  /tmp/energi.tar.gz" | sha256sum -c -
 
 # Extract Energi Node binary
 RUN tar -xzf /tmp/energi.tar.gz -C /tmp && \
-    mv /tmp/energi-* /energi
+    mv /tmp/energi3-* /energi
 
 # Clean up
 RUN rm /tmp/energi.tar.gz
