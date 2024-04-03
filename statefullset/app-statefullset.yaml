@@ -13,6 +13,8 @@ spec:
       labels:
         app: energi-node
     spec:
+      imagePullSecrets: 
+      - name: dockersecret
       containers:
       - name: energi-node
         image: awskanojia/devops-challenge:latest

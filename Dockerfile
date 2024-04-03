@@ -15,15 +15,18 @@ RUN curl -Lo /tmp/energi.tar.gz https://s3-us-west-2.amazonaws.com/download.ener
 RUN echo "${ENERGI_CHECKSUM}  /tmp/energi.tar.gz" | sha256sum -c -
 
 # Extract Energi Node binary
-RUN tar -xzf /tmp/energi.tar.gz -C /tmp && \
-    mv /tmp/energi3-* /energi
+RUN tar -xvzf /tmp/energi.tar.gz -C /tmp && \
+    mv /tmp/energi3-* /opt/energi
 
 # Clean up
 RUN rm /tmp/energi.tar.gz
+
+# Expose Port
+EXPOSE 39797 39798
 
 # Set up a non-root user
 RUN addgroup -S energi && adduser -S energi -G energi
 USER energi
 
 # Run the Energi Node client
-CMD ["/energi/energi", "console"]
+ENTRYPOINT ["/opt/energi/bin/energi3"]

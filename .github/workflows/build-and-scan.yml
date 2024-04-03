@@ -62,7 +62,15 @@ jobs:
       #   run: |
       #     aws eks update-kubeconfig --name devops-challenge --region ap-south-1
       #     kubectl get svc -A
+      #     kubectl create secret docker-registry dockersecret \
+      #        --docker-server=https://index.docker.io/v1/ \
+      #        --docker-username=$DOCKERHUB_USERNAME \
+      #        --docker-password=$DOCKERHUB_PASSWORD \
+      #        --docker-email=aws.kanojia@gmail.com
       #     kubectl apply -f statefullset/app-statefullset.yaml
+      #   env:
+      #     DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #     DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PASSWORD }} 
 
       - name: Terraform Deploy
         run: |
