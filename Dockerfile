@@ -15,9 +15,12 @@ RUN curl -Lo /tmp/energi.tar.gz https://s3-us-west-2.amazonaws.com/download.ener
 RUN echo "${ENERGI_CHECKSUM}  /tmp/energi.tar.gz" | sha256sum -c -
 
 # Extract Energi Node binary
-RUN tar -xvzf /tmp/energi.tar.gz -C /tmp && \
-    mv /tmp/energi3-${ENERGI_VERSION}-linux-amd64/* /opt/energi/ && ls /opt/energi
+RUN tar -xvzf /tmp/energi.tar.gz -C /opt/ && \
+    cd /opt/ && mv energi3-${ENERGI_VERSION}-linux-amd64 energi
 
+
+# Verfiy Library
+RUN ls /opt/energi
 # Clean up
 RUN rm /tmp/energi.tar.gz
 
