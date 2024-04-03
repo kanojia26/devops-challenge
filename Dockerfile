@@ -29,9 +29,15 @@ RUN rm /tmp/energi.tar.gz
 #Port Expose
 EXPOSE 39795 39796 39797 39797/udp
 
-RUN ls /home/energi/energi3/bin
 # Set the working directory
 WORKDIR /home/energi/energi3/bin
+
+#Set permission 
+RUN chmod +x /home/energi/energi3/bin/energi3
+
+
+# Set the PATH environment variable
+ENV PATH="/home/energi/energi3/bin:${PATH}"
 
 
 # Run the Energi Node client
